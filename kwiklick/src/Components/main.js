@@ -1,9 +1,12 @@
 import React from "react";
+import Clicker from "./Clicker/index";
 
-const main = () => {
+const Main = () => {
     return(
-        <div></div>
+        <div>
+            <Clicker />
+        </div>
     );
 }
 
-export default main;
+export default Main;
