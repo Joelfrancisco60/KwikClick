@@ -1,0 +1,62 @@
+.ShopDiv
+    display: flex
+    flex-direction: row
+
+    .ShopElements
+        display: flex
+        flex-direction: column
+        margin-right: -34px
+        img
+            width: 80%
+
+        .multiplyBackground
+            position: relative
+            display: inline-block
+            line-height: 0
+            box-sizing: border-box
+            overflow: hidden
+
+        .multiplyCursor
+            position: absolute
+            inset: 0
+            pointer-events: none
+            max-width: 60px
+            width: 100%
+
+        .Price
+            position: relative
+            display: inline-block
+            line-height: 0
+            box-sizing: border-box
+            overflow: hidden
+
+            .priceText
+                position: absolute
+                inset: 0
+                display: flex
+                align-items: center
+                justify-content: center
+                pointer-events: none
+                max-width: 100%
+                width: 100%
+                height: 100%
+                font-weight: 800
+                white-space: nowrap
+                text-align: center
+                font-size: 24px
+                left: -12%
+
+    .ShopElements
+        .multiplyBackground
+            .multiplyCursor
+                padding: 40px 30px
+
+    .ShopElements:nth-child(2)
+        .multiplyBackground
+            .multiplyCursor
+                padding: 35px 30px
+
+    .ShopElements:nth-child(3)
+        .multiplyBackground
+            .multiplyCursor
+                padding: 30px 30px

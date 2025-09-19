@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Clicker from "./Clicker/index";
 import FondScore from "../Asset/fondScore.png";
+import Shop from "./Shop/index";
 import "./styles.sass";
 
 const Main = () => {
@@ -24,7 +25,9 @@ const Main = () => {
   return (
     <div className="main">
       <div className="mainContent">
-        <div className="coucou">coucou</div>
+        <div className="shop">
+          <Shop />
+        </div>
         <div className="clicker">
           <Clicker Click={click} />
         </div>
