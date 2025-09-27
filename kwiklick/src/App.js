@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import Main from "./Components/Main";
+import Main from "./Components/main";
 import video from "./Asset/VideoFondKwiKlick.mp4";
 import "./App.sass";
 
@@ -19,7 +19,6 @@ function App() {
       vid.muted = false;
       vid.play().catch(() => console.debug("Lecture avec son encore bloquée."));
 
-      // retirer listeners
       ["click", "keydown", "touchstart", "mousemove"].forEach((ev) =>
         window.removeEventListener(ev, enableSound)
       );
