@@ -49,17 +49,20 @@ const Shop = (props) => {
   const buy = (clicks) => {
     if (clicks === 2 && props.score >= 100) {
       setBuy100(false);
+      props.buyClicks(100)
       props.setNumberClicks(clicks);
     } 
     else if (clicks === 4 && props.score >= 10000) {
       setBuy10K(false);
       setBuy100(false);
+      props.buyClicks(10000)
       props.setNumberClicks(clicks);
     } 
     else if (clicks === 10 && props.score >= 1000000) {
       setBuy1M(false);
       setBuy10K(false);
       setBuy100(false);
+      props.buyClicks(1000000)
       props.setNumberClicks(clicks);
     }
   };

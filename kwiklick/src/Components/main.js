@@ -24,6 +24,10 @@ const Main = () => {
     setScore((prevScore) => prevScore + nClickpPerClick);
   };
 
+  const buyClicks = (item) => {
+    setScore((prevScore) => prevScore - item);
+  }
+
   const resetAll = () => {
     setNClickpPerClick(1);
     setResetShop(true);
@@ -39,6 +43,7 @@ const Main = () => {
           <Shop 
             setNumberClicks={setNClickpPerClick} 
             score={score}
+            buyClicks={buyClicks}
             resetShop={resetShop}
             setResetShop={setResetShop}
           />
