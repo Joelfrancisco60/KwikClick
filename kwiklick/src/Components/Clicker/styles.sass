@@ -1,4 +1,29 @@
 .clickerDiv
     display: flex
-    width: 100%
     justify-content: center
+    align-items: center
+    width: 100%
+    margin-left: -300px
+    &:hover
+        cursor: url('../../Asset/Cursor/curseur2.png'), auto
+        &:active
+            cursor: url('../../Asset/Cursor/curseur3.png'), auto
+
+    .character
+        position: relative
+        width: 700px // ou la largeur du corps
+        height: auto
+
+        .teteContante
+            position: absolute
+            top: -48%
+            left: 66%
+            transform: translateX(-50%)
+            width: 270px
+            transition: transform 0.1s ease
+
+        .animate
+            transform: translateX(-50%) translateY(100px)
+
+        .corp
+            width: 100%
