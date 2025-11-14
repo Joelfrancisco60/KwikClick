@@ -23,7 +23,7 @@ const Clicker = (props) => {
         <div className="clickerDiv" onClick={clickTete}>
             <div className="character">
                 <img
-                    className={`teteContante ${!contant ? 'animate' : ''} floating`}
+                    className={`teteContante floating ${animate ? 'animate' : ''}`}
                     src={contant ? teteContante : teteEnerver}
                     alt="tête"
                 />
