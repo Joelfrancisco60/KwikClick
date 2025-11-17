@@ -25,10 +25,10 @@
             width: 270px
 
             &.floating
-                animation: floatU 4s ease-in-out infinite
+                animation: floatU 2s ease-in-out infinite
 
             &.animate
-                animation: clickDown 0.2s ease forwards
+                animation: clickDown 0.1s ease forwards
 
         .corp
             width: 100%
@@ -43,8 +43,8 @@
 
     @keyframes clickDown
         0%
-            transform: translateX(-50%) translateY(0)
+            transform: translateX(-50%) translateY(10px)
         50%
-            transform: translateX(-50%) translateY(100px)
+            transform: translateX(-50%) translateY(110px)
         100%
-            transform: translateX(-50%) translateY(0)
+            transform: translateX(-50%) translateY(10px)
