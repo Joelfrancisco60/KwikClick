@@ -16,7 +16,7 @@ const Clicker = (props) => {
         setTimeout(() => {
             setContant(true)
             setAnimate(false)
-        }, 270)
+        }, 300)
     }
 
     return (
