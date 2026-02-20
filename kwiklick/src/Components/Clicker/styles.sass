@@ -4,6 +4,8 @@
     align-items: center
     width: 100%
     margin-left: -300px
+    user-select: none
+    -webkit-user-select: none
 
     &:hover
         cursor: url('../../Asset/Cursor/curseur2.png'), auto
@@ -16,6 +18,8 @@
         width: 700px
         height: auto
         display: flex
+        @media screen and (min-width: 2560px)
+            width: 1310px
 
         .teteContante
             position: absolute
@@ -23,6 +27,8 @@
             left: 66%
             transform: translateX(-50%)
             width: 270px
+            @media screen and (min-width: 2560px)
+                width: 510px
 
             &.floating
                 animation: floatU 2s ease-in-out infinite
