@@ -9,6 +9,11 @@
     width: 100%
     justify-content: space-between
     align-items: flex-start
+    transition: filter 0.3s
+
+    &.blocked
+        pointer-events: none
+        filter: brightness(0.4)
 
     .shop
         padding: 10px
@@ -50,3 +55,13 @@
             max-width: 100%
             white-space: nowrap
             text-align: center
+
+.bouncing-video
+    position: fixed
+    z-index: 999999
+    border-radius: 8px
+    pointer-events: all
+    &:hover
+        cursor: url('../Asset/Cursor/curseur2.png'), auto
+    &:active
+        cursor: url('../Asset/Cursor/curseur3.png'), auto
