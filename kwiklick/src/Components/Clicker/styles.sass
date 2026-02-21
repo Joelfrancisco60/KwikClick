@@ -1,4 +1,56 @@
 .clickerDiv
     display: flex
-    width: 100%
     justify-content: center
+    align-items: center
+    width: 100%
+    margin-left: -300px
+    user-select: none
+    -webkit-user-select: none
+
+    &:hover
+        cursor: url('../../Asset/Cursor/curseur2.png'), auto
+
+    &:active
+        cursor: url('../../Asset/Cursor/curseur3.png'), auto
+
+    .character
+        position: relative
+        width: 700px
+        height: auto
+        display: flex
+        @media screen and (min-width: 2560px)
+            width: 1310px
+
+        .teteContante
+            position: absolute
+            top: -48%
+            left: 66%
+            transform: translateX(-50%)
+            width: 270px
+            @media screen and (min-width: 2560px)
+                width: 510px
+
+            &.floating
+                animation: floatU 2s ease-in-out infinite
+
+            &.animate
+                animation: clickDown 0.1s ease forwards
+
+        .corp
+            width: 100%
+
+    @keyframes floatU
+        0%
+            transform: translateX(-50%) translateY(0)
+        50%
+            transform: translateX(-50%) translateY(15px)
+        100%
+            transform: translateX(-50%) translateY(0)
+
+    @keyframes clickDown
+        0%
+            transform: translateX(-50%) translateY(10px)
+        50%
+            transform: translateX(-50%) translateY(110px)
+        100%
+            transform: translateX(-50%) translateY(10px)
