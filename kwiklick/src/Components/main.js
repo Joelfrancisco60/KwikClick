@@ -5,6 +5,19 @@ import FlyingVideo from "../Asset/mouchee_VP9.webm";
 import Shop from "./Shop/index";
 import "./styles.sass";
 
+// Import des sons
+import BillyVO1 from "../Asset/Billy voice line/BillyVOYOUS1.mp3";
+import BillyVO2 from "../Asset/Billy voice line/BillyVOYOUS2.mp3";
+import BillyVO3 from "../Asset/Billy voice line/BillyVOYOUS3.mp3";
+import BillyVO4 from "../Asset/Billy voice line/BillyVOYOUS4.mp3";
+import BillyVO5 from "../Asset/Billy voice line/BillyVOYOUS5.mp3";
+import BillyVO6 from "../Asset/Billy voice line/BillyVOYOUS6.mp3";
+import BillyVO7 from "../Asset/Billy voice line/BillyVOYOUS7.mp3";
+import BillyVO8 from "../Asset/Billy voice line/BillyVOYOUS8.mp3";
+import BillyVO9 from "../Asset/Billy voice line/BillyVOYOUS9.mp3";
+
+const BILLY_SOUNDS = [BillyVO1, BillyVO2, BillyVO3, BillyVO4, BillyVO5, BillyVO6, BillyVO7, BillyVO8, BillyVO9];
+
 const VIDEO_WIDTH = 400;
 const VIDEO_HEIGHT = 300;
 const SPEED = 4;
@@ -20,11 +33,38 @@ const Main = () => {
   const [showFlier, setShowFlier] = useState(false);
 
   const lastThresholdRef = useRef(Math.floor(score / 100));
-  const prevScoreRef = useRef(score); // 👈 on garde l'ancien score
+  const prevScoreRef = useRef(score);
   const posRef = useRef({ x: 100, y: 100 });
   const velRef = useRef({ x: SPEED, y: SPEED });
   const videoRef = useRef(null);
   const rafRef = useRef(null);
+
+  // Billy sounds
+  const billyIndexRef = useRef(0);
+  const currentAudioRef = useRef(null);
+
+  // Touche B → joue le son suivant
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key !== "b" && e.key !== "B") return;
+
+      // Coupe le son en cours si besoin
+      if (currentAudioRef.current) {
+        currentAudioRef.current.pause();
+        currentAudioRef.current.currentTime = 0;
+      }
+
+      const audio = new Audio(BILLY_SOUNDS[billyIndexRef.current]);
+      currentAudioRef.current = audio;
+      audio.play();
+
+      // Passe au son suivant (boucle de 0 à 8)
+      billyIndexRef.current = (billyIndexRef.current + 1) % BILLY_SOUNDS.length;
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   useEffect(() => {
     if (!showFlier) {
@@ -72,7 +112,7 @@ const Main = () => {
     if (score >= 1000000) setScoreSize(20);
 
     const currentThreshold = Math.floor(score / 100);
-    const scoreIncreased = score > prevScoreRef.current; // 👈 le score a augmenté ?
+    const scoreIncreased = score > prevScoreRef.current;
 
     if (scoreIncreased && currentThreshold > lastThresholdRef.current) {
       lastThresholdRef.current = currentThreshold;
@@ -88,7 +128,7 @@ const Main = () => {
       setShowFlier(true);
     }
 
-    prevScoreRef.current = score; // 👈 on met à jour l'ancien score
+    prevScoreRef.current = score;
   }, [score]);
 
   const click = () => {
